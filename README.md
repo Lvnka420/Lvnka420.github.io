@@ -12,5 +12,5 @@ How it works:
 
 Notes:
 
-- If you prefer to publish from a branch (e.g., `gh-pages`) or from the `docs/` folder, adjust the workflow or project `vite` config accordingly.
-- The workflow uses the recommended Pages Actions: `configure-pages`, `upload-pages-artifact`, and `deploy-pages`.
+- This repository now uses the `peaceiris/actions-gh-pages@v4` action to publish the `./dist` folder to the `gh-pages` branch automatically.
+- Alternatively you can publish from a `docs/` folder or change the publishing branch in the workflow if you prefer a different setup.
