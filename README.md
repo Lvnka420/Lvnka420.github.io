@@ -1,0 +1,1 @@
+# Jestem demonem, bo przepracowałem piekło

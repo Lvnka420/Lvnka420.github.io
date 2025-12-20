@@ -1,0 +1,565 @@
+@import "tailwindcss";
+@font-face {
+    font-family: "Frutiger Pro 67 Bold Condensed";
+    src: url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.eot");
+    src: url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/4e27fc05646f69c52991a5f5560b69af.svg#Frutiger Pro 67 Bold Condensed")format("svg");
+}
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Frutiger Pro 67 Bold Condensed";
+        }
+        
+        body {
+            background: #111;
+            color: #e0e0e0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            font-family: "Frutiger Pro 67 Bold Condensed";
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex: 1 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
+            padding: 15px 0;
+            border-bottom: 2px solid #6d02f7;
+            box-shadow: 0 0 20px rgba(109, 2, 247, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6d02f7 0%, #4d01b0 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(109, 2, 247, 0.5);
+        }
+        
+        .logo-circle::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #0c0c0c;
+            transform: translate(-50%, -50%);
+        }
+        
+        .logo-text {
+            font-family: "Frutiger Pro 67 Bold Condensed";
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #6d02f7, #4d01b0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(109, 2, 247, 0.3);
+        }
+        
+        .status-bar {
+            display: flex;
+            gap: 20px;
+            font-family: "Frutiger Pro 67 Bold Condensed";
+            font-size: 0.9rem;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #00cc66;
+        }
+        
+        /* Main Interface */
+        .interface-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 20px;
+            padding: 30px 0;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+        }
+        
+        .section-title {
+            font-family: "Frutiger Pro 67 Bold Condensed";
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6d02f7;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .nav-menu {
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-bottom: 10px;
+        }
+        
+        .nav-item a {
+            display: block;
+            padding: 12px 15px;
+            color: #ccc;
+            text-decoration: none;
+            background: rgba(30, 30, 30, 0.8);
+            border-left: 4px solid #6d02f7;
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+        
+        .nav-item a:hover, .nav-item a.active {
+            background: rgba(109, 2, 247, 0.2);
+            color: #fff;
+            border-left: 4px solid #6d02f7;
+        }
+        
+        .nav-item i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Test Chambers Grid */
+        .test-chambers {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .chamber-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+            background: #18122b;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px #000a;
+            margin: 24px 0;
+            padding: 32px 24px;
+            /* Usuń lub nie ustawiaj height/min-height */
+            width: 100%;
+            max-width: 480px;
+            transition: box-shadow 0.2s;
+            /* Chamber dopasuje się do treści */
+        }
+        
+        .chamber-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(109, 2, 247, 0.3);
+            border-color: #6d02f7;
+        }
+        
+        .chamber-header {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 15px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .chamber-title {
+            font-family: "Frutiger Pro 67 Bold Condensed";
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .chamber-subtitle {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .chamber-content {
+            padding: 20px;
+        }
+        
+        .difficulty {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .difficulty-label {
+            margin-right: 10px;
+            color: #777;
+        }
+        
+        .difficulty-bars {
+            display: flex;
+            gap: 3px;
+        }
+        
+        .difficulty-bar {
+            width: 15px;
+            height: 8px;
+            background: #333;
+            border-radius: 2px;
+        }
+        
+        .difficulty-bar.active {
+            background: #6d02f7;
+        }
+        
+        .chamber-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-item {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 10px;
+            border-radius: 3px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #6d02f7;
+            margin-bottom: 3px;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #777;
+        }
+        
+        .portal-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #6d02f7 0%, #4d01b0 100%);
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-family: "Frutiger Pro 67 Bold Condensed";
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(109, 2, 247, 0.4);
+        }
+        
+        .portal-btn:hover {
+            background: linear-gradient(135deg, #6d02f7 0%, #6d02f7 100%);
+            box-shadow: 0 0 20px #6d02f7;
+        }
+        
+        /* Companion Cube */
+        .companion-cube {
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 80px;
+            height: 80px;
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite linear;
+        }
+        
+        .cube-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #eee;
+            border: 2px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: #ff00c8;
+            opacity: 0.9;
+        }
+        
+        .front  { transform: translateZ(40px); }
+        .back   { transform: rotateY(180deg) translateZ(40px); }
+        .right  { transform: rotateY(90deg) translateZ(40px); }
+        .left   { transform: rotateY(-90deg) translateZ(40px); }
+        .top    { transform: rotateX(90deg) translateZ(40px); }
+        .bottom { transform: rotateX(-90deg) translateZ(40px); }
+        
+        @keyframes rotate {
+            0%   { transform: rotateX(0) rotateY(0); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+        
+        /* Portal Effect */
+        .portal-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 50;
+        }
+        
+        .portal {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .portal-purple {
+            background: radial-gradient(circle, #6d02f7 0%, #4d01b0 70%);
+            border: 3px solid #6d02f7;
+        }
+          
+        .portal::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            animation: portalPulse 3s infinite ease-in-out;
+        }
+        
+        @keyframes portalPulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(0.95); opacity: 0.3; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        
+        .portal:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Footer */
+        footer {
+            width: 100%;
+            background: #18122b;
+            color: #fff;
+            padding: 32px 0 16px 0;
+            text-align: center;
+            margin-top: auto;
+            box-shadow: 0 -2px 24px #000a;
+            font-size: 1em;
+            font-family: "Frutiger Pro 67 Bold Condensed";
+        }
+        
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-weight: bold;
+            margin-bottom: 12px;
+            letter-spacing: 0.08em;
+            font-size: 1.1em;
+            font-family: "Frutiger Pro 67 Bold Condensed";
+        }
+        
+        .copyright {
+            color: #777;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        
+        /* Glados Message */
+        .glados-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            font-size: 1.2em;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        .glados-close:hover {
+            opacity: 1;
+            color: #6d02f7;
+        }
+        .glados-message {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            bottom: auto;
+            background: #1a102a;
+            color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 32px #000a;
+            padding: 24px 32px 24px 24px;
+            z-index: 1000;
+            max-width: 400px;
+            font-size: 1.05em;
+        }
+        
+        .glados-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #5917d3;
+        }
+        
+        .glados-icon {
+            width: 30px;
+            height: 30px;
+            background: #333;
+            border-radius: 50%;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        @keyframes slideIn {
+            to {
+                transform: translateX(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .interface-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .status-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        pre {
+        text-align: center;
+        color:white
+        }
+        h1 {text-align: center;
+            color:white;
+          font-family: "Frutiger Pro 67 Bold Condensed";
+        }
+        h2 {text-align: center;
+        color:white;
+         font-family: "Frutiger Pro 67 Bold Condensed";
+         
+        }
+        div {text-align: center;
+        color:white;
+         font-family: "Frutiger Pro 67 Bold Condensed";
+         
+        }
+.terminal {
+  background: #1e1e1e;
+  color: #f8f8f8;
+  border-radius: 8px;
+  padding: 0;
+  max-width: 600px;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.terminal-header {
+  background: #333;
+  padding: 8px 15px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.title {
+  margin-left: 10px;
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.terminal-body {
+  padding: 15px;
+  line-height: 1.5;
+}
+
+.prompt {
+  color: #6eff6e;
+  margin-right: 10px;
+}
+
+.heart {
+  color: #ff6b8b;
+}
